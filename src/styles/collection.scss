@@ -1,0 +1,26 @@
+.collection{
+    display: flex;
+    max-width: 1560px;
+    margin: auto;
+    position: relative;
+    justify-content: space-around;
+    padding: 150px 5%;
+
+    @include m1024{
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        padding: 50px 2%;
+    }
+
+    &__imagesContainer{
+
+        @include m1024{
+            order: 1;
+        }
+       
+        img{
+            width: 100%;
+        }
+    }
+}

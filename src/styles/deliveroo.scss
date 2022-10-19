@@ -1,0 +1,81 @@
+.deliveroo{
+   
+   color: $white;
+   text-transform: uppercase;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+
+   &__container{
+      margin-top: 100px;
+      max-width: 755px;
+   }
+
+   &__text{
+      line-height: 4.8rem;
+      letter-spacing: 0.2rem;
+      font-family: $bold;
+      font-size: 45px;
+
+      @include m1024{
+         font-size: 35px;
+     }
+   
+      .neon{
+         @include NeonText(4.5rem, $black, $green, rotate(0deg), true);
+
+         @include m1024{
+            @include NeonText(35px, $black, $green, rotate(0deg), true);
+        }
+        
+      }
+   }
+
+   &__img{
+      background: url('../assets/IMG/deliveroo/deliveroo.png') no-repeat 0 0;
+      width: 520px;
+      height: 400px;
+      margin: 70px auto;
+      background-size: 300% 100%;
+
+      &:hover{
+         animation: deliverooSprite 1s steps(2) infinite;
+      }
+
+      @include m1024{
+         width: 340px;
+         aspect-ratio: 514/401;
+         height: auto;
+     }
+   }
+
+   @keyframes deliverooSprite{
+      0%{
+          background-position: 100% 100%;
+      }
+      
+      100%{
+          background-position: 0 100%;
+      }
+  }
+
+  &__translate, &__cgv{
+   font-family: $regular;
+   font-size: 14px;
+   letter-spacing: 0.15rem;
+   margin-bottom: 30px;
+  }
+
+  &__cgv{
+   margin-bottom: 100px;
+
+   span{
+      color: #E41F1B;
+      text-shadow: 1px 1px 4px #E41F1B;
+      text-decoration: underline;
+      cursor: pointer;
+   }
+  }
+}

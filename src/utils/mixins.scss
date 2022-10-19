@@ -1,0 +1,59 @@
+@mixin m1700 {
+    @media screen and (max-width: 1600px) {
+        @content;
+    }
+}
+
+@mixin m1250 {
+    @media screen and (max-width: 1250px) {
+        @content;
+    }
+}
+
+@mixin m1024 {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin m991 {
+    @media screen and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin m767 {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+
+@mixin NeonText($fontSize, $textColor, $neonColor, $transform, $inline-block: true) {
+    color: $textColor;
+    text-transform: uppercase;
+    font-size: $fontSize;
+    letter-spacing: 4px;
+    line-height: 1;
+    text-shadow: -1px -1px 4px $neonColor, 1px -1px 2px $neonColor, -1px 1px 2px $neonColor, 1px 1px 2px $neonColor;
+    display: block;
+    transform: $transform;
+    transform-origin: left;
+    @if $inline-block {
+        color: transparent;
+        text-shadow: 
+            0px 0px 5px $textColor, 
+            -2px -2px 4px $neonColor, 
+            2px -2px 2px $neonColor, 
+            -2px 2px 2px $neonColor, 
+            2px 2px 3px $neonColor;
+        -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.6);
+        display: inline-block;
+
+        @supports (background: -webkit-named-image(i)) {
+             text-shadow: -1px 0px rgba(255, 255, 255, 0.4), 0px 1px rgba(255, 255, 255, 0.4), 0px -1px rgba(255, 255, 255, 0.4), 1px 0px rgba(255, 255, 255, 0.4), -1px -0px rgba(255, 255, 255, 0.4), 1px 0px rgba(255, 255, 255, 0.4), -1px 0px rgba(255, 255, 255, 0.4), -2px -2px 4px $neonColor, 2px -2px 2px $neonColor, -2px 2px 2px $neonColor, 2px 2px 3px $neonColor;
+             -webkit-text-fill-color: $textColor;
+            -webkit-text-stroke: unset;
+        }
+    }
+}

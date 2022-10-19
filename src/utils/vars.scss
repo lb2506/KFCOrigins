@@ -1,0 +1,62 @@
+// Variables declaration
+$bold : "National 2 Condensed Bold";
+$regular: "National 2 Condensed Regular";
+$medium: "National 2 Condensed Medium";
+
+
+$white: #ffffff;
+$black: #171717;
+$grey: #8e8e8e;
+$red: #971A29;
+$red2: #E41F1B;
+$green: #00CCBC;
+$pink-light: #ffeeee;
+
+.main__container {
+    max-width: 1560px;
+    margin: auto;
+}
+
+.template {
+    background-color: $black;
+    sup {
+        vertical-align: sub;
+    }
+}
+
+.bg-noise {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background-image: url('../assets/IMG/bg-noise.png');
+    background-repeat: repeat;
+    animation: bg-animation .3s infinite;
+    opacity: .9;
+    visibility: visible;
+    pointer-events: none;
+    @supports (background: -webkit-named-image(i)) {
+        background-size: contain;
+        opacity: 0.25;
+    }
+  }
+  
+  
+  @keyframes bg-animation {
+      0% { transform: translate(0,0) }
+      10% { transform: translate(-5%,-5%) }
+      20% { transform: translate(-10%,5%) }
+      30% { transform: translate(5%,-10%) }
+      40% { transform: translate(-5%,15%) }
+      50% { transform: translate(-10%,5%) }
+      60% { transform: translate(15%,0) }
+      70% { transform: translate(0,10%) }
+      80% { transform: translate(-15%,0) }
+      90% { transform: translate(10%,5%) }
+      100% { transform: translate(5%,0) }
+  }
+
+
