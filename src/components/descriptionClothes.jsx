@@ -13,7 +13,7 @@ let clothes = [
     {
         name: 'blouson',
         image: Blouson,
-        title : "Le blouson <span>qui déchire.</span>",
+        title : "Le blouson qui <span class='bottom'>déchire.</span>",
         description : "La sape ultime. Le graal de la mode made in kfc. Un starter ultra quali, au look old school inimitable. Réservé aux puristes.",
         details : [
             "détails produits :",
@@ -25,7 +25,7 @@ let clothes = [
     {
         name: 'chemise',
         image: Chemise,
-        title : "La chemise qui défonce.",
+        title : "La chemise qui <span class='top'>défonce.</span>",
         description : "Inspirée des chemises de base-ball, c'est la future pièce maitraisse de ta garde robe. Déjà un classique.",
         details : [
             "détails produits :",
@@ -36,7 +36,7 @@ let clothes = [
     {
         name: 'bob',
         image: Bob,
-        title : "Le bob qui fait plaisir.",
+        title : "Le bob qui fait <span class='top'>plaisir.</span>",
         description: "Parce qu'éviter d'avoir une insolation ne doit pas empêcher d'avoir du style. Un couvre chef digne d'un colonel.",
         details : [
             "détails produits :",
@@ -47,7 +47,7 @@ let clothes = [
     {
         name: 'chaussette',
         image: Chaussette,
-        title : "Les chaussettes qui claquent.",
+        title : "Les chaussettes qui <span class='bottom'>claquent.</span>",
         description: "Simples. Blanches. Classes. Avec la tête du colonel brodée sur la cheville pour un style pédestre irréprochable.",
         details : [
             "détails produits :",
@@ -69,7 +69,7 @@ let DescriptionClothes = function(){
 
         ScrollTrigger.create({
             trigger: ".progressBar",
-            start: "top +750",
+            start: "top +650",
             end: "+3500",
             onUpdate: self => setProgress(self.progress)
           });
@@ -82,9 +82,9 @@ let DescriptionClothes = function(){
         currentClothes = clothes[0];
     }else if(progress > 0.37 && progress <= 0.637){
         currentClothes = clothes[1];
-    }else if(progress > 0.637 && progress <= 0.9015){
+    }else if(progress > 0.637 && progress <= 0.9115){
         currentClothes = clothes[2];
-    }else if(progress > 0.9015 && progress <= 1){
+    }else if(progress > 0.9115 && progress <= 1){
         currentClothes = clothes[3];
     }
 
@@ -117,17 +117,18 @@ let DescriptionClothes = function(){
     return (
         <div className="dropDown" >
         <div className={`description ${open ? 'open' : ''}`}>
+        <img src={require(`../assets/IMG/arrow_dropdown.png`)} className={`description__arrowDropDown ${open ? 'open' : ''}`} alt="arrowDropDown" onClick={()=> setOpen(!open)}/>
             <div className="description__container">
             { clothes.map((clothe, index) => {
                 return (
                     <>
                     <div className={'container__clothes' + (currentClothesMobile.name === clothe.name ? ' order' : '')} key={index}>  
                             <div className={`clothes__description` + (currentClothes.name === clothe.name ? ' active' : '')}>
+                                <span className={`clothes__description__border` + (currentClothes.name === clothe.name ? ' active' : '')}></span>
                                 <div className="description__dropdown">
                                     <h2 className="clothes__name" onClick={()=> {if(open){window.location.replace(`#${clothe.name}`)}; setOpen(!open)}}>{clothe.name}</h2>
                                     <img src={clothe.image} alt={clothe.name} className="clothes__image"/>
                                 </div>
-                                <img src={require(`../assets/IMG/arrow_dropdown.png`)} className={`clothes__arrowDropDown ${open ? 'open' : ''}`} alt="arrowDropDown" onClick={()=> setOpen(!open)}/>
                             </div>
                         <div className={`container__line` + (currentClothes.name === clothe.name ? ' active' : '')}/>
                         <span className={`container__divider ${open ? 'active' : ''}`}></span>

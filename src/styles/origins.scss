@@ -34,6 +34,11 @@
         .title{
             font-weight: bold;
             font-size: 4rem;
+            max-width: 450px;
+
+            @include m1024{
+               margin: 0 auto;
+            }
         }
 
         .subtitle{

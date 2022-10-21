@@ -26,7 +26,7 @@
         border: 2px solid white;
         box-shadow: 0 0 10px 0 white;
         overflow: hidden;
-        height: 125px;
+        height: 120px;
         border-radius: 10px;
         transition: all 0.2s ease;
         position: absolute;
@@ -34,7 +34,7 @@
         background-color: rgba(0, 0, 0, 0.7);
         
         &.open{
-            height: 500px;
+            height: 465px;
         }
     }
 
@@ -64,6 +64,28 @@
         }
     }
 
+    &__arrowDropDown{
+
+        display: none;
+
+        @include m1024{
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 25px;
+            order: 2;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            transform: rotate(0deg);
+    
+            &.open{
+                transform: rotate(180deg);
+            }
+
+        }
+        
+    }
+
         .container{
             
             &__clothes{
@@ -87,14 +109,26 @@
 
                     &__description{
                         border: 3px solid rgba(255, 255, 255, 0.2);
-                        width: 90px;
-                        height: 125px;
+                        width: 80px;
+                        height: 115px;
                         border-radius: 10px;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         justify-content: space-between;
-                        padding-top: 15px;
+                        padding-top: 8px;
+                        position: relative;
+                        transition: all 0.2s ease;
+                        
+                        &.active{
+                            border: 3px solid white;
+                            box-shadow: 0px 0px 5px 0px white;
+
+                            @include m1024{
+                                border: none;
+                                box-shadow: none;
+                            }
+                        }
                         
                         @include m1024{
                             width: 100%;
@@ -106,15 +140,28 @@
                             padding: 0 10px;
                         }
 
-                        &.active{
-                            border: 3px solid white;
-                            box-shadow: 0px 0px 5px 0px white;
+                        &__border{
+                            position: absolute;
+                            width: 105px;
+                            height:145%;
+                            top: -26px;
+                            background: url('../assets/IMG/border-neon.png');
+                            background-position: center;
+                            background-size: cover;
+                            opacity: 0.2;
+                            filter: grayscale(100%);
+                            transition: all 0.2s ease;
+
+                            &.active{
+                                opacity: 1;
+                                filter: grayscale(0%);
+                            }
 
                             @include m1024{
-                                border: none;
-                                box-shadow: none;
+                                display: none;
                             }
                         }
+
                     }
 
                  
@@ -138,26 +185,7 @@
                         }
                     }
                     
-                    &__arrowDropDown{
-
-                        display: none;
-
-                        @include m1024{
-                            display: block;
-                            position: absolute;
-                            right: 0;
-                            top: 25px;
-                            order: 2;
-                            cursor: pointer;
-                            transition: all 0.2s ease-in-out;
-                            transform: rotate(0deg);
                     
-                            &.open{
-                                transform: rotate(180deg);
-                            }
-                        }
-                        
-                    }
                 }
             }
 
@@ -221,7 +249,7 @@
         border: none;
         background: rgba(255, 255, 255, 0.2);
         position: absolute;
-        top: 163px;
+        top: 153px;
         left: 0;
         border-radius: 2px;
         
@@ -234,7 +262,7 @@
         background: white;
         box-shadow: 0px 0px 5px 0px white;
         height: 4px;
-        min-width: 10.6%;  
+        min-width: 9.4%;  
         }
     }
 
@@ -269,6 +297,22 @@
                 text-transform: uppercase;
                 font-weight: bold;
                 font-family: $bold;
+
+                span{
+
+                    &.top{
+                        @include NeonText(4.5rem, $black, $red2, rotate(-3deg), true);
+                        margin-left: 5px;
+                    }
+
+                    &.bottom{
+                        @include NeonText(4.5rem, $black, $red2, rotate(3deg), true);
+                        margin-left: 5px;
+                    }
+                    
+                        
+                    
+                }
             }
 
             &__description{
